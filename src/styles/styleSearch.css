@@ -1,0 +1,21 @@
+.form-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 220px;
+  border: none;
+  height: 120px;
+  padding: 15px;
+  align-items: flex-start;
+  background: none;
+}
+.search {
+  border: solid white 0.5px;
+}
+.button-serach {
+  width: 100%;
+  color: white;
+  border: none;
+  margin-top: 8px;
+  background-color: rgb(68, 66, 66);
+}

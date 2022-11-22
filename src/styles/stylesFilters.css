@@ -1,0 +1,42 @@
+.filter-show {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 15px;
+}
+.filters {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: rgb(37, 34, 34);
+  display: flex;
+  border-radius: 1%;
+}
+
+.hide {
+  display: none;
+}
+ul {
+  margin-top: 0px;
+}
+.gender-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  padding: 5px;
+}
+.gender-container-select {
+  background-color: rgba(85, 78, 78, 0.856);
+  padding: 1px;
+  font-size: 30px;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+.gender-name {
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}

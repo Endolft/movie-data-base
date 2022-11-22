@@ -1,0 +1,86 @@
+.movieList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  padding: 0px;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.link {
+  margin: 0px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #383736;
+  align-items: center;
+  width: 300px;
+  border: solid black 5px;
+}
+.overlay {
+  width: 294px;
+  height: 650px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  background-color: rgba(196, 191, 191, 0.767);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  opacity: 0;
+}
+.overlay-img {
+  margin-top: 0px;
+  width: 100px;
+  height: 100px;
+}
+.img-card {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 451px;
+}
+.text-container {
+    height: 200px;
+    border-top: solid black 5px;
+    color: rgba(255, 255, 255, 0.658);
+    text-align: -webkit-match-parent;
+    padding: 5px;
+  }
+  
+.titulo-pelicula {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.658);
+  }
+  .card:hover {
+    z-index: 55;
+  }
+
+  .card:hover .overlay {
+    opacity: 1;
+  }
+  .page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .change-pages{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    align-items: center;
+  }
+  .number-page{
+   padding: 5px;
+   border: solid  white 2px;
+   margin: 0px 30px;
+  }
+  .button-change {
+    width: 100px;
+  }
+  .hide{
+    display: none;
+  }

@@ -1,0 +1,26 @@
+.content-dark {
+  background-color: rgb(19, 17, 17);
+  display: flex;
+}
+
+input {
+  font-size: 20px;
+  width: 100%;
+  border: solid rgba(179, 174, 174, 0.63) 4px;
+  padding: 0px;
+}
+
+.lupa {
+  margin-left: 3px;
+  font-size: 25px;
+}
+.searching {
+  height: 100%;
+  margin: 20px;
+  margin-top: 60px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0px;
+}

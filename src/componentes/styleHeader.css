@@ -1,0 +1,88 @@
+.header {
+  background-color: black;
+  height: 60px;
+  width: 100%;
+  top: 0;
+  z-index: 1055;
+}
+.header-white {
+  background-color: #cecacae5;
+  height: 60px;
+  width: 100%;
+  top: 0;
+  z-index: 1055;
+}
+.container-header {
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  align-content: space-between;
+}
+a {
+  text-decoration: none;
+  margin: 5px;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 999px;
+  margin-top: 20px;
+  margin-left: 15px;
+  border: solid 5px black;
+  cursor: pointer;
+  pointer-events: visible;
+}
+.img-position {
+  width: 100%;
+  justify-content: flex-start;
+}
+h3 {
+  color: white;
+  margin-right: 30px;
+}
+
+.listado {
+  display: none;
+}
+.mostrar {
+  display: flex;
+}
+.ul-show {
+  display: block;
+  margin-left: 83px;
+  color: white;
+}
+
+.list {
+  margin: 10px;
+  background-color: black;
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+}
+.tuerca {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+  border: solid white 1px;
+  padding: 10px;
+  width: 25px;
+  height: 25px;
+}
+.icon-list {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
