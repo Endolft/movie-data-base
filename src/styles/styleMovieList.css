@@ -65,6 +65,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   .change-pages{
     color: white;
@@ -83,4 +84,26 @@
   }
   .hide{
     display: none;
+  }
+  .carroussel{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    color: wheat;
+    width: 200px;
+    height: 60px;
+  }
+  .button-Carroussel{
+    margin: 3px;
+    border: solid 2px wheat;
+    border-radius: 10px;
+    width: 30px;
+    background-color: black;
+    cursor: pointer;
+  }
+  h3{
+    padding: 15px;
+    margin: 0px 15px;
+    text-decoration: underline;
+    font-size: 25px;
   }

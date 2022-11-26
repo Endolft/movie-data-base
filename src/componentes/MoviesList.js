@@ -2,16 +2,30 @@ import { Link } from "react-router-dom";
 import camera from "../componentes/imagenes/camera.png";
 import "../styles/styleMovieList.css";
 
-export const MoviesList = ({ movies }) => {
+export const MoviesList = ({ movies, increment, decrement, counter }) => {
   return (
     <div className="page">
+      <div className="carroussel">
+        <button onClick={decrement} className="button-Carroussel">
+          {"<"}
+        </button>
+        <h3>{counter}</h3>
+        <button onClick={increment} className="button-Carroussel">
+          {">"}
+        </button>
+      </div>
+
       <div className="movieList">
         {movies?.map((movie, index) => {
           return (
             <Link to={`/detalle/${movie.id}`} className="link" key={index}>
               <div className="card">
                 <div className="overlay">
-                  <img className="overlay-img" src={camera} alt='Camera image' />
+                  <img
+                    className="overlay-img"
+                    src={camera}
+                    alt="Camera image"
+                  />
                 </div>
 
                 <img
@@ -32,6 +46,7 @@ export const MoviesList = ({ movies }) => {
           );
         })}
       </div>
+     
     </div>
   );
 };

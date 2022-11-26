@@ -1,70 +1,48 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Header } from "../componentes/Header.js";
-import "../styles/styleListado.css";
-import { useFetch } from "../componentes/useFetch";
+import { useFetch } from "../Hooks/useFetch.js";
 import { genders } from "../componentes/data/genders";
 import { Search } from "../componentes/Search";
 import { Filters } from "../componentes/Filters";
 import { MoviesList } from "../componentes/MoviesList";
+import "../styles/styleListado.css";
+import { useCounter } from "../Hooks/useCounter.js";
+
 export const Listado = () => {
   let tokenAlmacenado = sessionStorage.getItem("token");
-
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=03001bac9af23366932d6ea454838123&language=en-US&sort_by=popularity.desc&include_video=false&page={param}`;
-  const [movies, setmovies] = useState([]);
-
+  const { counter, increment, decrement } = useCounter(1);
+  const urlDefault = `https://api.themoviedb.org/3/discover/movie?api_key=03001bac9af23366932d6ea454838123&language=en-US&sort_by=popularity.desc&include_video=false&page=1`;
+  const [url, seturl] = useState(urlDefault);
   const [filters, setfilters] = useState("");
-
   const [hide, sethide] = useState(true);
-
-  const { movieList } = useFetch({ url });
-
-  useEffect(() => {
-    const getResource = async (url) => {
-      const resp = await fetch(url);
-      const jsonResponse = resp.json();
-      setmovies(jsonResponse.results);
-    };
-    getResource(url);
-  }, [url]);
+  const { data, isLoanding } = useFetch(url);
 
   const showfilter = (e) => {
     e.preventDefault();
     sethide(!hide);
+    seturl(urlDefault);
   };
+  useEffect(() => {
+    if (filters === "") {
+      seturl(`${urlDefault}&page=${counter}`);
+    }
+    seturl(`${urlDefault}&with_genres=${filters}&page=${counter}`);
+  }, [counter]);
 
   const handlecheck = (e) => {
     e.preventDefault();
 
     let urlFilter = `${url}&with_genres=${e.target.value}`;
 
-    console.log(urlFilter);
-
-    console.log(urlFilter);
     setfilters(e.target.value);
-
-    const getResource = async (urlFilter) => {
-      const resp = await fetch(urlFilter);
-      const jsonResponse = await resp.json();
-      setmovies(jsonResponse.results);
-    };
-
-    e.target.value ? getResource(urlFilter) : getResource(url);
+    seturl(urlFilter);
   };
 
-  useEffect(() => {
-    setmovies(movieList);
-  }, [movieList]);
-
-  const handlesubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const urlsearch = `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${e.target.search.value}`;
-    const getResource = async (url) => {
-      const resp = await fetch(url);
-      const jsonResponse = await resp.json();
-      setmovies(jsonResponse.results);
-    };
-    e.target.search.value ? getResource(urlsearch) : getResource(url);
+    e.target.search.value === "" ? seturl(urlDefault) : seturl(urlsearch);
   };
 
   return (
@@ -72,12 +50,12 @@ export const Listado = () => {
       <Header />
       {!tokenAlmacenado && <Navigate to="/" />}
 
-      {!movies ? (
+      {isLoanding ? (
         <p>loanding...</p>
       ) : (
         <div className="content-dark">
           <div className="searching">
-            <Search handlesubmit={handlesubmit} />
+            <Search handleSubmit={handleSubmit} />
             <Filters
               handlecheck={handlecheck}
               showfilter={showfilter}
@@ -86,7 +64,8 @@ export const Listado = () => {
               filters={filters}
             />
           </div>
-          <MoviesList movies={movies} />
+          <MoviesList movies={data} increment={increment} decrement={decrement} counter={counter}/>
+          
         </div>
       )}
     </>
