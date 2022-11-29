@@ -22,8 +22,11 @@ export const Header = () => {
     settoken(sessionStorage.removeItem("token"));
     navigate("/");
   };
-  const refresh = (e) => {
+  const refresh = () => {
     navigate("/listado");
+    if (window.location.pathname === "/listado") {
+      window.location.reload();
+    }
   };
 
   return (
@@ -44,8 +47,8 @@ export const Header = () => {
               </div>
             </div>
 
-            <div className="user-container">
-              <div className="ul-show">
+            <div className="user-container ">
+              <div className="ul-show ">
                 <FontAwesomeIcon
                   className="tuerca"
                   onClick={change}
@@ -53,7 +56,11 @@ export const Header = () => {
                 />
               </div>
 
-              <div className={list ? "list " : "hide"}>
+              <div
+                className={
+                  list ? "list animate__animated animate__fadeInDown " : "hide"
+                }
+              >
                 <div className="icon-list" onClick={out}>
                   <FontAwesomeIcon icon={faSignOut} /> <p>Log out </p>
                 </div>

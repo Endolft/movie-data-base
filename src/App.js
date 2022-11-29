@@ -1,18 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import { Detalles } from "./pages/Detalles";
+import { Details } from "./pages/Details";
 import { Login } from "./pages/Login";
-import { Listado } from "./pages/Listado";
+import { List } from "./pages/List";
 
 import "./styles.css";
 
 export const App = () => {
   return (
     <>
-        
       <Routes>
         <Route exact path="/" element={<Login />} />
-        <Route path="/listado" element={<Listado />} />
-        <Route path="/detalle/:id" element={<Detalles />} />
+        <Route path="/listado/" element={<List />} />
+        <Route path="/detalle/:id" element={<Details />} />
       </Routes>
     </>
   );

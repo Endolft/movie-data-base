@@ -1,6 +1,7 @@
 .content-dark {
   background-color: rgb(19, 17, 17);
   display: flex;
+  flex: 1;
 }
 
 input {
@@ -15,12 +16,15 @@ input {
   font-size: 25px;
 }
 .searching {
-  height: 100%;
-  margin: 20px;
   margin-top: 60px;
   color: white;
   font-size: 30px;
   display: flex;
   flex-direction: column;
   margin-right: 0px;
+}
+.loanding {
+  background-color: rgb(19, 17, 17);
+  display: flex;
+  flex: 1;
 }

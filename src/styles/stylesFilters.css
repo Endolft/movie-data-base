@@ -20,14 +20,14 @@
 ul {
   margin-top: 0px;
 }
-.gender-container {
+.genres-container {
   display: flex;
   align-items: center;
   justify-content: left;
   text-align: left;
   padding: 5px;
 }
-.gender-container-select {
+.genres-container-select {
   background-color: rgba(85, 78, 78, 0.856);
   padding: 1px;
   font-size: 30px;
@@ -35,7 +35,7 @@ ul {
   padding: 5px;
 }
 
-.gender-name {
+.genres-name {
   font-size: 20px;
   cursor: pointer;
   margin-top: 10px;

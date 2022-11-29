@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useCounter = (number) => {
   const [counter, setCounter] = useState(number);
@@ -9,6 +9,11 @@ export const useCounter = (number) => {
   const increment = () => {
     setCounter(counter + 1);
   };
+  useEffect(() => {
+    if (counter < number) {
+      setCounter(number);
+    }
+  }, [counter]);
 
-  return { counter, decrement, increment };
+  return { counter, decrement, increment, setCounter };
 };

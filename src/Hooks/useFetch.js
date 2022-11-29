@@ -5,6 +5,7 @@ export const useFetch = (url) => {
     data: null,
     isLoanding: true,
     hasError: null,
+    pages: null,
   });
 
   const getResource = async () => {
@@ -15,6 +16,7 @@ export const useFetch = (url) => {
       data: data.results,
       isLoanding: false,
       hasError: null,
+      pages: data.total_pages,
     });
   };
 
@@ -22,9 +24,10 @@ export const useFetch = (url) => {
     getResource();
   }, [url]);
 
-  return { 
+  return {
     data: movieList.data,
-    isLoanding:movieList.isLoanding,
-    hasError:movieList.hasError
-   };
+    isLoanding: movieList.isLoanding,
+    hasError: movieList.hasError,
+    pages: movieList.pages,
+  };
 };

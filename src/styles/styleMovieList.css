@@ -43,67 +43,92 @@
   height: 451px;
 }
 .text-container {
-    height: 200px;
-    border-top: solid black 5px;
-    color: rgba(255, 255, 255, 0.658);
-    text-align: -webkit-match-parent;
-    padding: 5px;
-  }
-  
-.titulo-pelicula {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.658);
-  }
-  .card:hover {
-    z-index: 55;
-  }
+  height: 200px;
+  border-top: solid black 5px;
+  color: rgba(255, 255, 255, 0.658);
+  text-align: -webkit-match-parent;
+  padding: 5px;
+}
 
-  .card:hover .overlay {
-    opacity: 1;
-  }
-  .page{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  }
-  .change-pages{
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-    align-items: center;
-  }
-  .number-page{
-   padding: 5px;
-   border: solid  white 2px;
-   margin: 0px 30px;
-  }
-  .button-change {
-    width: 100px;
-  }
-  .hide{
-    display: none;
-  }
-  .carroussel{
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    color: wheat;
-    width: 200px;
-    height: 60px;
-  }
-  .button-Carroussel{
-    margin: 3px;
-    border: solid 2px wheat;
-    border-radius: 10px;
-    width: 30px;
-    background-color: black;
-    cursor: pointer;
-  }
-  h3{
-    padding: 15px;
-    margin: 0px 15px;
-    text-decoration: underline;
-    font-size: 25px;
-  }
+.titulo-pelicula {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.658);
+}
+.card:hover {
+  z-index: 55;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.change-pages {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  align-items: center;
+}
+.number-page {
+  padding: 5px;
+  border: solid white 2px;
+  margin: 0px 30px;
+}
+.button-change {
+  width: 100px;
+}
+.hide {
+  display: none;
+}
+.pagination {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  color: wheat;
+  width: 200px;
+  height: 60px;
+}
+.button-pagination {
+  margin: 3px;
+  border: solid 2px wheat;
+  border-radius: 10px;
+  width: 30px;
+  background-color: black;
+  cursor: pointer;
+}
+h3 {
+  padding: 15px;
+  margin: 0px 15px;
+  text-decoration: underline;
+  font-size: 25px;
+}
+.number {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  border: solid white 2px;
+  padding: 10px;
+  font-size: 30px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.number-select {
+  display: flex;
+  align-items: center;
+  border: solid white 2px;
+  padding: 10px;
+  font-size: 30px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: rgba(201, 192, 182, 0.753);
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+}
