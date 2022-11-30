@@ -1,12 +1,11 @@
 import Swal from "sweetalert2";
 
 export const checkLogin = (email, password) => {
-
   if ([email, password].includes("")) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "email y contraseña no pueden estar vacios",
+      text: "Email or Password can't be empty",
       color: "#f8d388",
       background: "#4b0f0c",
       showConfirmButton: true,
@@ -17,7 +16,7 @@ export const checkLogin = (email, password) => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Usuario o contraseña incorrecto!",
+      text: "Wrong Username or password !",
       color: "#f8d388",
       background: "#4b0f0c",
       showConfirmButton: true,

@@ -3,7 +3,8 @@ import camera from "../../componentes/images/camera.png";
 import { Pagination } from "./Pagination";
 import "../../styles/styleMovieList.css";
 
-export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,search,filters,hide,}) => {
+export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,search,filters,hide,
+}) => {
   return (
     <div className="page  ">
       <div className="movieList">

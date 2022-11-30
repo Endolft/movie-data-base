@@ -54,10 +54,6 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.658);
 }
-.card:hover {
-  z-index: 55;
-}
-
 .card:hover .overlay {
   opacity: 1;
 }

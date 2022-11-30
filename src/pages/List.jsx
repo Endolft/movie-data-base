@@ -15,6 +15,7 @@ export const List = () => {
   const [filters, setfilters] = useState("");
   const [hide, setHide] = useState(true);
   const [search, setSearch] = useState("");
+
   const { counter, increment, decrement, setCounter } = useCounter(1);
   const { data, isLoanding, pages } = useFetch(url);
 

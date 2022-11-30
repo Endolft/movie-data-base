@@ -23,10 +23,12 @@ export const Header = () => {
     navigate("/");
   };
   const refresh = () => {
-    navigate("/listado");
+    
     if (window.location.pathname === "/listado") {
-      window.location.reload();
+      window.location.reload(); 
+      return
     }
+    navigate("/listado");
   };
 
   return (
