@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 
 export const checkLogin = (email, password) => {
+
   if ([email, password].includes("")) {
     Swal.fire({
       icon: "error",
@@ -12,20 +13,6 @@ export const checkLogin = (email, password) => {
     });
     return;
   }
-
-  if (email !== "gmail@.com") {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Ingrese un correo valido!",
-      color: "#f8d388",
-      background: "#4b0f0c",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    return;
-  }
-
   if (email !== "gmail@.com" || password !== "gmail@.com") {
     Swal.fire({
       icon: "error",
