@@ -7,10 +7,16 @@
   justify-content: center;
   margin-top: 30px;
 }
-.link {
+.card{
+  width: 300px;
+  height: 661px;
   margin: 0px;
+  background-color: #131111;
+  margin: 20px;
+  text-decoration: none;
+  text-align: center;
 }
-.card {
+.cart {
   display: flex;
   flex-direction: column;
   background-color: #383736;
@@ -19,8 +25,8 @@
   border: solid black 5px;
 }
 .overlay {
-  width: 294px;
-  height: 650px;
+  width: 300px;
+  height: 641px;
   margin: 0px;
   padding: 0px;
   position: absolute;
@@ -43,6 +49,7 @@
   height: 451px;
 }
 .text-container {
+  text-decoration: none;
   height: 200px;
   border-top: solid black 5px;
   color: rgba(255, 255, 255, 0.658);

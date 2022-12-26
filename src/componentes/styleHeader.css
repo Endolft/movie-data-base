@@ -1,88 +1,59 @@
-.header {
-  background-color: black;
-  height: 60px;
-  width: 100%;
+#header {
+  position: sticky;
   top: 0;
-  z-index: 1055;
+  z-index: 1080;
 }
-.header-white {
-  background-color: #cecacae5;
+.container-fluid {
+  margin-right: 15px;
+  width: 100%;
+}
+.img {
   height: 60px;
+  width: 60px;
+}
+.navbar {
   width: 100%;
-  top: 0;
-  z-index: 1055;
-}
-.container-header {
-  justify-content: space-around;
-  display: flex;
-  width: 100%;
-  align-content: space-between;
-}
-a {
-  text-decoration: none;
-  margin: 5px;
-}
-.logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 999px;
-  margin-top: 20px;
-  margin-left: 15px;
-  border: solid 5px black;
-  cursor: pointer;
-  pointer-events: visible;
-}
-.img-position {
-  width: 100%;
-  justify-content: flex-start;
-}
-h3 {
-  color: white;
-  margin-right: 30px;
-}
-
-.listado {
-  display: none;
-}
-.mostrar {
-  display: flex;
-}
-.ul-show {
-  display: block;
-  margin-left: 83px;
-  color: white;
-}
-
-.list {
-  margin: 10px;
-  background-color: black;
-  width: 120px;
-  height: 120px;
-  padding: 10px;
 }
 .tuerca {
   display: flex;
-  justify-content: flex-end;
-  margin: 5px;
-  border: solid white 1px;
-  padding: 10px;
+  padding: 5px;
   width: 25px;
   height: 25px;
 }
-.icon-list {
-  display: flex;
-  width: 100%;
-  cursor: pointer;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.hide {
-  display: none;
-}
-
-.user-container {
+#ul-setting {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: #f8d388;
+}
+
+.nav-item {
+  display: flex;
+  color: #f8d388;
+  align-items: center;
+  cursor: pointer;
+}
+p {
+  margin: 10px;
+}
+.tuerca {
   color: white;
+  border: solid white 2px;
+}
+.nav-link {
+  padding: 5px;
+}
+.dropdown-item {
+  background-color: #212529;
+  color: #f8d388;
+}
+.dropdown-menu {
+  background-color: #212529;
+  padding-right: 30px;
+  border: 0px;
+}
+#offcanvasNavbar {
+  color: #f8d388;
+  background-color: #212529;
 }

@@ -6,19 +6,19 @@ import "../../styles/styleMovieList.css";
 export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,search,filters,hide,
 }) => {
   return (
-    <div className="page  ">
-      <div className="movieList">
+    <div className="page">
+      <div className="row row-cols-1 row-cols-md-5 g-1">
         {movies?.map((movie, index) => {
           return (
-            <Link to={`/detalle/${movie.id}`} className="link" key={index}>
-              <div className="card">
+            <Link to={`/detalle/${movie.id}`} className="card" key={index}>
+              <div className="cart">
                 <div className="overlay">
                   <img className="overlay-img" src={camera} alt="Camera " />
                 </div>
 
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  className="img-card"
+                  className="card-img-top"
                   alt=""
                   onError={({ currentTarget }) => {
                     currentTarget.onerror = null;
@@ -28,11 +28,11 @@ export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,
                 />
 
                 <div className="text-container">
-                  <h4 className="titulo-pelicula">{`${movie.title.substring(
+                  <h4 className="card-title">{`${movie.title.substring(
                     0,
                     30
                   )}`}</h4>
-                  <p>{`${movie.overview.substring(0, 140)}...`}</p>
+                  <p className="card-text"> {`${movie.overview.substring(0, 140)}...`}</p>
                 </div>
               </div>
             </Link>
@@ -52,3 +52,4 @@ export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,
     </div>
   );
 };
+

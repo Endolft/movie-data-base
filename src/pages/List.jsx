@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Header } from "../componentes/Header.js";
+import { Header } from "../componentes/Header.jsx";
 import { useFetch } from "../Hooks/useFetch.js";
 import { genres } from "../componentes/data/genres";
 import { Search } from "../componentes/list components/Search";
