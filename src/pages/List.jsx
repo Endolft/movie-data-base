@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "../componentes/Header.jsx";
 import { useFetch } from "../Hooks/useFetch.js";
 import { genres } from "../componentes/data/genres";
@@ -15,6 +16,7 @@ export const List = () => {
   const [filters, setfilters] = useState("");
   const [hide, setHide] = useState(true);
   const [search, setSearch] = useState("");
+  const [token, settoken] = useState("");
 
   const { counter, increment, decrement, setCounter } = useCounter(1);
   const { data, isLoanding, pages } = useFetch(url);
@@ -34,6 +36,9 @@ export const List = () => {
       seturl(urlDefault);
     }
   };
+  useEffect(() => {
+    settoken(sessionStorage.getItem("token"));
+  }, []);
 
   useEffect(() => {
     if (counter) {
@@ -70,8 +75,11 @@ export const List = () => {
     e.target.search.value === "" ? seturl(urlDefault) : seturl(urlsearch);
   };
 
-  return (
+  return (<>
+   { !token? 
+        <Link to={"/"} /> :
     <>
+  
       <Header />
 
       {isLoanding ? (
@@ -101,6 +109,7 @@ export const List = () => {
           />
         </div>
       )}
-    </>
+    </>}
+  </>
   );
 };

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Social = () => {
   return (
-    <div className="social">
+    <div className="social mt-2">
       <a href="http://twitter.com" rel="noopenernoreferrer">
         <FontAwesomeIcon icon={faTwitter} size="xl" />
       </a>

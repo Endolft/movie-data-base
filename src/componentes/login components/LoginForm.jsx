@@ -34,11 +34,11 @@ export const LoginForm = ({ handleSubmit }) => {
           defaultValue={"gmail@.com"}
         />
       </div>
-      <div className="row mb-4">
-        <div className="d-flex justify-content-end ">
+      <div className="colums">
+        <div className="d-flex justify-content-end mt-2">
           <button
             type="onSubmit"
-            className="btn btn-dark btn-lg  align-items-center"
+            className="button"
           >
             Send
           </button>
