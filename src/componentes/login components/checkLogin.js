@@ -25,6 +25,9 @@ export const checkLogin = (email, password) => {
     return;
   }
 
+
   const tokenRecibido = "token ficticio";
   sessionStorage.setItem("token", tokenRecibido);
+  
+  
 };

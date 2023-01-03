@@ -6,37 +6,34 @@ import "../../styles/stylesFilters.css";
 export const Filters = ({handleSelect,showfilter,hide,genres,filters,}) => {
   return (
     <>
-      <div className="filter-show ">
+      <div className="filter-show "
+      onClick={showfilter}
+      >
         <h3 onClick={handleSelect} value={""}>
           Filters
         </h3>{" "}
         <FontAwesomeIcon
           icon={hide ? faCaretRight : faCaretDown}
           size="xl"
-          onClick={showfilter}
+          
         />
       </div>
 
-      <div
-        className={
-          !hide
-            ? "filters animate__animated animate__fadeInLeft animate__faster	"
-            : " hide"
-        }
-      >
-        <ul>
+      {!hide &&<div className="filters animate__animated animate__fadeInLeft animate__faster">
+        <ul  className="list-group">
           {genres.map((genre, index) => {
             return (
               <div
+               
                 className={
                   genre.id !== filters
-                    ? "genres-container"
+                    ? "genres-container-filter"
                     : "genres-container-select"
                 }
                 key={index}
               >
                 <li
-                  className="genres-name"
+                  className="genres-names"
                   onClick={handleSelect}
                   value={genre.id}
                 >
@@ -46,7 +43,7 @@ export const Filters = ({handleSelect,showfilter,hide,genres,filters,}) => {
             );
           })}
         </ul>
-      </div>
+      </div>}
     </>
   );
 };

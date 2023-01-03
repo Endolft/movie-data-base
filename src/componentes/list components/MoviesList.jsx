@@ -7,7 +7,7 @@ export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,
 }) => {
   return (
     <div className="page">
-      <div className="row row-cols-1 row-cols-md-5 g-1">
+      <div className="row row-cols-1 row-cols-md-5 g-1" id="cards">
         {movies?.map((movie, index) => {
           return (
             <Link to={`/detalle/${movie.id}`} className="card" key={index}>

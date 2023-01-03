@@ -1,27 +1,38 @@
 import React from "react";
+import { useForm } from "../../Hooks/useForm";
 import { Social } from "./Social";
 
-export const LoginForm = ({ handleSubmit }) => {
+export const LoginForm = ({}) => {
+  const { formState, onInputChange, handleSubmit } = useForm({
+    password: "",
+    email: "",
+  });
+
+  const { password, email } = formState;
+
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <h1 id="title"> Welcome!</h1>
 
       <div className="colums">
-        <label className="labels" for="forEmail">
+        <label className="labels" for="email">
           Email
         </label>
 
         <input
           type="text"
-          name="email"
           className="form-control"
-          id="formEmail"
           placeholder="gmail@.com"
+          name="email"
+          id="formEmail"
+          value={email}
+          onChange={onInputChange}
           defaultValue={"gmail@.com"}
         />
       </div>
       <div className="colums">
-        <label className="labels" for="forPassword">
+        <label className="labels" for="password">
           Password
         </label>
 
@@ -31,15 +42,14 @@ export const LoginForm = ({ handleSubmit }) => {
           className="form-control"
           id="formPassword"
           placeholder="gmail@.com"
+          value={password}
+          onChange={onInputChange}
           defaultValue={"gmail@.com"}
         />
       </div>
       <div className="colums">
         <div className="d-flex justify-content-end mt-2">
-          <button
-            type="onSubmit"
-            className="button"
-          >
+          <button type="onSubmit" className="button">
             Send
           </button>
         </div>

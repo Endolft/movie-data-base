@@ -14,6 +14,7 @@
   background-size: 100% 100%;
   height: 100vh;
 }
+
 #title {
   margin-top: 30px;
   color: #f8d388;
@@ -22,7 +23,7 @@
   background-color: #4b0f0c;
 }
 
-form {
+.form {
   background-color: #4b0f0c;
   align-items: center;
   padding: 10px;
@@ -83,4 +84,15 @@ a {
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+
+@media only screen and (max-width: 600px) {
+  .form
+    {
+      display: none;
+    
+  }
+  #container-form {
+    display: none;
+  }
 }

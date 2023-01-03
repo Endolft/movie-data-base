@@ -16,12 +16,16 @@ input {
   font-size: 25px;
 }
 .searching {
-  margin-top: 60px;
+  
   color: white;
   font-size: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-right: 0px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
 .loanding {
   background-color: rgb(19, 17, 17);
