@@ -1,6 +1,5 @@
 import { React, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import { Header } from "../componentes/Header";
+import {  useParams } from "react-router-dom";
 import { useFetchDetails } from "../Hooks/useFetchDetails.js";
 import { Titles } from "../componentes/Details components/Titles";
 import { InfoMovie } from "../componentes/Details components/InfoMovie";
@@ -33,19 +32,15 @@ export const Details = () => {
     console.log(e);
   };
 
-  let tokenAlmacenado = sessionStorage.getItem("token");
-
   return (
     <>
-      {!tokenAlmacenado && <Navigate to="/" />}
-
       {!isLoadingMovie && (
         <div className="container-details animate__animated animate__fadeIn ">
           {close ? (
             <FullScreenTrailer handleclose={handleclose} trailer={trailer} />
           ) : (
             <>
-              <Header />
+              
               <div className="card-movie animate__animated animate__fadeIn animate__bounce  animate__slow">
                 <Titles movie={movie} />
                 <InfoMovie

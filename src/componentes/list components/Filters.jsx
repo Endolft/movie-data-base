@@ -22,6 +22,7 @@ export const Filters = ({handleSelect,showfilter,hide,genres,filters,}) => {
       {!hide &&<div className="filters animate__animated animate__fadeInLeft animate__faster">
         <ul  className="list-group">
           {genres.map((genre, index) => {
+           
             return (
               <div
                

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
+
 export const Pagination = ({pages,increment, decrement,counter,setcounter,search,filters,}) => {
   const [lastPage, setLastPage] = useState(10);
   const [firstPage, setFirstPage] = useState(1);
+  
   
 
   const pagination = Array(pages + 1);
@@ -33,12 +35,15 @@ export const Pagination = ({pages,increment, decrement,counter,setcounter,search
 
   return (
     <div className="pagination">
+      {counter>1 && 
       <button
-        onClick={decrement}
-        className={counter === 1 ? "hide" : "button-pagination"}
-      >
-        {"<"}
-      </button>
+      onClick={decrement}
+      className={  "button-pagination"}
+    >
+      {"<"}
+    </button>
+      }
+      
       {arrayCut.map((page, index) => {
         return (
           <li
@@ -46,16 +51,16 @@ export const Pagination = ({pages,increment, decrement,counter,setcounter,search
             onClick={() => setcounter(page)}
             key={index}
           >
-            {page}
+           {page}
           </li>
         );
       })}
-      <button
+      {counter<pages&& <button
         onClick={increment}
-        className={counter === pages ? "hide" : "button-pagination"}
+        className={ "button-pagination"}
       >
         {">"}
-      </button>
-    </div>
+      </button>}
+    </div> 
   );
 };

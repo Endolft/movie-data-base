@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import camera from "../../componentes/images/camera.png";
 import { Pagination } from "./Pagination";
 import "../../styles/styleMovieList.css";
+import React from "react";
 
-export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,search,filters,hide,
+export const MoviesList = React.memo(({movies,increment,decrement,counter,pages,setcounter,search,filters,hide,
 }) => {
   return (
     <div className="page">
@@ -51,5 +52,6 @@ export const MoviesList = ({movies,increment,decrement,counter,pages,setcounter,
       />
     </div>
   );
-};
+}
+)
 
