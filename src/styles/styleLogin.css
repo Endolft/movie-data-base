@@ -86,13 +86,29 @@ a {
   justify-content: space-around;
 }
 
-@media only screen and (max-width: 600px) {
-  .form
-    {
-      display: none;
-    
+@media only screen and (max-width: 980px) {
+  .form {
+    background-color: #4b0f0c;
+    align-items: center;
+    padding: 20px;
+    color: #f8d388;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0.9;
+    height: 700px;
+    width: 550px;
+    border: outset #f8d388 3px;
+    border-radius: 9px;
   }
-  #container-form {
-    display: none;
+  .social {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    height: 40px;
+  }
+  .icon {
+    height: 45px;
   }
 }

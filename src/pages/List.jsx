@@ -13,7 +13,7 @@ export const List = () => {
   const { filters, handleFilters } = useFilters();
 
   const [url, seturl] = useState(urlDefault);
-  const [show, setshow] = useState(false);
+  const [show, setshow] = useState(true);
 
   const { data, isLoanding, pages } = useFetch(url);
   console.log(filters);

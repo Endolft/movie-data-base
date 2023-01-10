@@ -10,13 +10,13 @@ export const Social = () => {
   return (
     <div className="social mt-2">
       <a href="http://twitter.com" rel="noopenernoreferrer">
-        <FontAwesomeIcon icon={faTwitter} size="xl" />
+        <FontAwesomeIcon icon={faTwitter} size="xl" className="icon" />
       </a>
       <a href="http://facebook.com" rel="noopenernoreferrer">
-        <FontAwesomeIcon icon={faFacebook} size="xl" />
+        <FontAwesomeIcon icon={faFacebook} size="xl"  className="icon"/>
       </a>
       <a href="http://instagram.com" rel="noopenernoreferrer">
-        <FontAwesomeIcon icon={faInstagram} size="xl" />
+        <FontAwesomeIcon icon={faInstagram} size="xl" className="icon" />
       </a>
     </div>
   );
