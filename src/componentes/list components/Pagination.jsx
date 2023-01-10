@@ -1,66 +1,77 @@
 import { useEffect, useState } from "react";
 
-
-export const Pagination = ({pages,increment, decrement,counter,setcounter,search,filters,}) => {
+export const Pagination = ({ pages, handleFilters, filters }) => {
   const [lastPage, setLastPage] = useState(10);
   const [firstPage, setFirstPage] = useState(1);
-  
-  
 
   const pagination = Array(pages + 1);
   const pageArray = [...pagination.keys()];
 
   let arrayCut = pageArray.slice(firstPage, lastPage);
 
+  const pageParam = parseInt(filters.page);
+
+  const genre=filters.genre || "";
+  const search=filters.search || "";
+
   useEffect(() => {
-    if (counter < firstPage) {
-      setFirstPage(counter - 8);
-      setLastPage(counter + 1);
+    if (pageParam < firstPage) {
+      setFirstPage(pageParam - 8);
+      setLastPage(pageParam + 1);
 
       return;
     }
-    if (counter === lastPage) {
-      setFirstPage(counter);
+    if (pageParam === lastPage) {
+      setFirstPage(pageParam);
 
-      setLastPage(counter + 9);
+      setLastPage(pageParam + 9);
 
       return;
     }
-  }, [counter]);
+  }, [filters.page]);
 
   useEffect(() => {
     setFirstPage(1);
     setLastPage(10);
-  }, [search, filters]);
+  }, [filters.search, filters.genre]);
+
+  const handlePage = (e) => {
+    handleFilters({ page: e.target.innerHTML,search:search,genre:genre});
+  };
+
+  const increment = () => {
+    let pageIncremnt = pageParam + 1;
+    handleFilters({ page: pageIncremnt,search:search,genre:genre });
+  };
+  const decrement = () => {
+    let pageDecrement = pageParam - 1;
+    handleFilters({ page: pageDecrement,search:search,genre:genre });
+  };
 
   return (
     <div className="pagination">
-      {counter>1 && 
-      <button
-      onClick={decrement}
-      className={  "button-pagination"}
-    >
-      {"<"}
-    </button>
-      }
-      
+      {pageParam > 1 && (
+        <button onClick={decrement} className={"button-pagination"}>
+          {"<"}
+        </button>
+      )}
+
       {arrayCut.map((page, index) => {
         return (
           <li
-            className={page === counter ? "number-select" : "number"}
-            onClick={() => setcounter(page)}
+            className={page === pageParam ? "number-select" : "number"}
+            onClick={handlePage}
             key={index}
           >
-           {page}
+            {page}
           </li>
         );
       })}
-      {counter<pages&& <button
-        onClick={increment}
-        className={ "button-pagination"}
-      >
-        {">"}
-      </button>}
-    </div> 
+      {pageParam < pages && (
+        <button onClick={increment} className={"button-pagination"}>
+          {">"}
+        </button>
+      )}
+    </div>
   );
 };

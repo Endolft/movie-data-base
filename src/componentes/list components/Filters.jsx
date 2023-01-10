@@ -3,23 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/stylesFilters.css";
 
-export const Filters = ({handleSelect,showfilter,hide,genres,filters,}) => {
+export const Filters = ({handleSelectGenre,showfilter,show,genres,filters,}) => {
+  console.log(show)
   return (
     <>
+    
       <div className="filter-show "
       onClick={showfilter}
       >
-        <h3 onClick={handleSelect} value={""}>
+        <h3 onClick={handleSelectGenre} value={""}>
           Filters
         </h3>{" "}
         <FontAwesomeIcon
-          icon={hide ? faCaretRight : faCaretDown}
+          icon={show ? faCaretRight : faCaretDown}
           size="xl"
           
         />
       </div>
 
-      {!hide &&<div className="filters animate__animated animate__fadeInLeft animate__faster">
+      {show &&<div className="filters animate__animated animate__fadeInLeft animate__faster">
         <ul  className="list-group">
           {genres.map((genre, index) => {
            
@@ -35,7 +37,7 @@ export const Filters = ({handleSelect,showfilter,hide,genres,filters,}) => {
               >
                 <li
                   className="genres-names"
-                  onClick={handleSelect}
+                  onClick={handleSelectGenre}
                   value={genre.id}
                 >
                   {genre.name}

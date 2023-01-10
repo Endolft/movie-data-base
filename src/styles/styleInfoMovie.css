@@ -55,6 +55,7 @@ iframe {
   font-size: 18px;
   height: 100%;
   margin-top: 50px;
+  color: white;
 }
 
 li {
@@ -69,7 +70,21 @@ li {
   margin: 30px;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 .hide {
   display: none;
+}
+
+@media only screen and (max-width: 980px) {
+  .info-movie {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .text-info{
+    margin-top: 20px;
+  }
 }

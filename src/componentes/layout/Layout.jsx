@@ -7,6 +7,7 @@ export const Layout = ({children}) => {
 
   useEffect(() => {
     settoken(sessionStorage.getItem("token"));
+    
   }, []);
   return (<>
   

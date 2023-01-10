@@ -1,156 +1,94 @@
-import { useEffect, useState } from "react";
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch.js";
+import { useEffect, useState } from "react";
 import { genresList } from "../componentes/data/genres";
 import { Search } from "../componentes/list components/Search";
 import { Filters } from "../componentes/list components/Filters";
 import { MoviesList } from "../componentes/list components/MoviesList";
-import { useCounter } from "../Hooks/useCounter.js";
+import { useFilters } from "../Hooks/useFilters.js";
 import "../styles/styleListado.css";
 
-const urlDefault = `https://api.themoviedb.org/3/discover/movie?api_key=03001bac9af23366932d6ea454838123&language=en-US&sort_by=popularity.desc&include_video=false&page=1`;
+const urlDefault = `https://api.themoviedb.org/3/discover/movie?api_key=03001bac9af23366932d6ea454838123&language=en-US&sort_by=popularity.desc&include_video=false`;
 
 export const List = () => {
+  const { filters, handleFilters } = useFilters();
+
   const [url, seturl] = useState(urlDefault);
-  const [filters, setfilters] = useState("");
-  const [hide, setHide] = useState(true);
-  const [search, setSearch] = useState("");
-  const [token, settoken] = useState("");
-  const [genres, setgenres] = useState("");
+  const [show, setshow] = useState(false);
 
-  const { counter, increment, decrement, setCounter } = useCounter(1);
   const { data, isLoanding, pages } = useFetch(url);
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [params, setParams] = useSearchParams();
-
-  const query = params.get("query");
-  const genre = params.get("genre");
-  console.log({ genre });
+  console.log(filters);
 
   useEffect(() => {
-    if (!Boolean(genre)) {
-     seturl(urlDefault) 
-     setfilters(null)
-     return
-    }
-    seturl(`${urlDefault}&with_genres=${genre}`);
-    setfilters(parseInt(genre))
-  }, [genre]);
-  useEffect(() => {
-    if(!Boolean(query)){
-      return
-    }
-    seturl(`https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${query}`)
-    setSearch(query)
-
-  }, [query])
-  
-
-  const showfilter = (e) => {
-    e.preventDefault();
-    setHide(!hide);
-
-    if (filters !== "") {
-      setfilters("");
-      setCounter(1);
-      seturl(urlDefault);
-    }
-    if (search !== "") {
-      setSearch("");
-      setCounter(1);
-      seturl(urlDefault);
-    }
-  };
-  useEffect(() => {
-    settoken(sessionStorage.getItem("token"));
+    handleFilters({ page: "1" });
   }, []);
 
   useEffect(() => {
-    if (counter) {
-      if (filters === "" && search === "") {
-        seturl(`${urlDefault}&page=${counter}`);
-        return;
-      }
-      if (filters !== "") {
-        seturl(`${urlDefault}&with_genres=${filters}&page=${counter}`);
-        return;
-      }
+    console.log(filters);
+    if (filters.search) {
       seturl(
-        `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${search}&page=${counter}`
+        `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${filters.search}&page=${filters.page}`
       );
+      return;
     }
-  }, [counter]);
+    if (filters.genre) {
+      seturl(`${urlDefault}&with_genres=${filters.genre}&page=${filters.page}`);
+      return
+    }
+    seturl(`${urlDefault}&page=${filters.page}`);
+    
 
-  const handleSelect = (e) => {
-    e.preventDefault();
-    setfilters("");
-    setCounter(1);
-    let urlFilter = `${url}&with_genres=${e.target.value}&page=1`;
-    setfilters(e.target.value);
+    /*    const urlParam={ 
+
+        page:`${urlDefault}&page=${filters.page}`,
+        search:`https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${filters.search}&page=${filters.page}`,
+        genre:`${urlDefault}&with_genres=${filters.genre}&page=${filters.page}`} */
+  }, [filters]);
+
+  const showfilter = () => {
+
+    setshow(!show);
+  };
+
+  const handleSelectGenre = (e) => {
+    let urlFilter = `${url}&with_genres=${e.target.value}`;
     seturl(urlFilter);
-
-    navigate(`/listado?genre=${e.target.value}`);
+    handleFilters({ genre: e.target.value, search: "", page: "1" });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setHide(true);
-    setfilters(null);
-    setCounter(1);
-    setSearch(e.target.search.value);
+    setshow(true);
+    console.log(e.target.search.value);
     const urlsearch = `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${e.target.search.value}`;
 
-    if (e.target.search.value !== "") {
-      seturl(urlsearch);
+    seturl(urlsearch);
 
-      navigate(`/listado?query=${e.target.search.value}`);
-      return;
-    }
-
-    seturl(urlDefault);
+    handleFilters({ genre: "", search: e.target.search.value, page: "1" });
   };
 
   return (
     <>
-      {!token ? (
-        <Link to={"/"} />
+      {isLoanding ? (
+        <div className="loanding"></div>
       ) : (
-        <>
-          {isLoanding ? (
-            <div className="loanding"></div>
-          ) : (
-            <div className="content-dark   animate__animated animate__fadeIn animate__bounce  animate__slow">
-              <div className="searching">
-                <Search handleSubmit={handleSubmit} />
-                <Filters
-                  handleSelect={handleSelect}
-                  showfilter={showfilter}
-                  hide={hide}
-                  genres={genresList}
-                  filters={filters}
-                />
-              </div>
-              <MoviesList
-                movies={data}
-                increment={increment}
-                decrement={decrement}
-                counter={counter}
-                pages={pages}
-                setcounter={setCounter}
-                search={search}
-                filters={filters}
-                hide={hide}
-              />
-            </div>
-          )}
-        </>
+        <div className="content-dark   animate__animated animate__fadeIn animate__bounce  animate__slow">
+          <div className="searching">
+            <Search handleSubmit={handleSubmit} value={filters.search} />
+            <Filters
+              handleSelectGenre={handleSelectGenre}
+              showfilter={showfilter}
+              show={show}
+              genres={genresList}
+              filters={parseInt(filters.genre)}
+            />
+          </div>
+          <MoviesList
+            movies={data}
+            pages={pages}
+            handleFilters={handleFilters}
+            filters={filters}
+          />
+        </div>
       )}
     </>
   );

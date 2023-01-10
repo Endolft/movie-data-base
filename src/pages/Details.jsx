@@ -35,13 +35,13 @@ export const Details = () => {
   return (
     <>
       {!isLoadingMovie && (
-        <div className="container-details animate__animated animate__fadeIn ">
+        <div className="container-details animate__animated animate__fadeIn " >
           {close ? (
             <FullScreenTrailer handleclose={handleclose} trailer={trailer} />
           ) : (
             <>
               
-              <div className="card-movie animate__animated animate__fadeIn animate__bounce  animate__slow">
+              <div className="card-movie animate__animated animate__fadeIn animate__bounce  animate__slow" id="container-movie">
                 <Titles movie={movie} />
                 <InfoMovie
                   movie={movie}
