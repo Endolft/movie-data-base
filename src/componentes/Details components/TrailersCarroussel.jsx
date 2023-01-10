@@ -5,7 +5,7 @@ import { useCounter } from "../../Hooks/useCounter";
 
 export const TrailersCarroussel = ({ movieTrailer }) => {
   const { counter, decrement, increment } = useCounter(0);
-  
+
   return (
     <div className="frame-contrainer">
       {movieTrailer ? (

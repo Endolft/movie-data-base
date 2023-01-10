@@ -5,12 +5,7 @@ import "../../styles/styleMovieList.css";
 import React from "react";
 
 export const MoviesList = React.memo(
-  ({
-    movies,
-    pages,
-    handleFilters,
-    filters,
-  }) => {
+  ({ movies, pages, handleFilters, filters }) => {
     return (
       <div className="page">
         <div className="row row-cols-1 row-cols-md-5 g-1" id="cards">

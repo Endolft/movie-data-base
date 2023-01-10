@@ -11,8 +11,8 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
 
   const pageParam = parseInt(filters.page);
 
-  const genre=filters.genre || "";
-  const search=filters.search || "";
+  const genre = filters.genre || "";
+  const search = filters.search || "";
 
   useEffect(() => {
     if (pageParam < firstPage) {
@@ -36,16 +36,16 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
   }, [filters.search, filters.genre]);
 
   const handlePage = (e) => {
-    handleFilters({ page: e.target.innerHTML,search:search,genre:genre});
+    handleFilters({ page: e.target.innerHTML, search: search, genre: genre });
   };
 
   const increment = () => {
     let pageIncremnt = pageParam + 1;
-    handleFilters({ page: pageIncremnt,search:search,genre:genre });
+    handleFilters({ page: pageIncremnt, search: search, genre: genre });
   };
   const decrement = () => {
     let pageDecrement = pageParam - 1;
-    handleFilters({ page: pageDecrement,search:search,genre:genre });
+    handleFilters({ page: pageDecrement, search: search, genre: genre });
   };
 
   return (

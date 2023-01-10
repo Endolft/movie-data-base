@@ -21,6 +21,9 @@ export const List = () => {
   useEffect(() => {
     handleFilters({ page: "1" });
   }, []);
+  const scroll = () => {
+    document.body.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     console.log(filters);
@@ -28,29 +31,24 @@ export const List = () => {
       seturl(
         `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${filters.search}&page=${filters.page}`
       );
+      scroll();
       return;
     }
     if (filters.genre) {
       seturl(`${urlDefault}&with_genres=${filters.genre}&page=${filters.page}`);
-      return
+      scroll();
+      return;
     }
     seturl(`${urlDefault}&page=${filters.page}`);
-    
-
-    /*    const urlParam={ 
-
-        page:`${urlDefault}&page=${filters.page}`,
-        search:`https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${filters.search}&page=${filters.page}`,
-        genre:`${urlDefault}&with_genres=${filters.genre}&page=${filters.page}`} */
+    scroll();
   }, [filters]);
 
   const showfilter = () => {
-
     setshow(!show);
   };
 
   const handleSelectGenre = (e) => {
-    let urlFilter = `${url}&with_genres=${e.target.value}`;
+    let urlFilter = `${url}&with_genres=${e.target.value}&page=1`;
     seturl(urlFilter);
     handleFilters({ genre: e.target.value, search: "", page: "1" });
   };
@@ -59,7 +57,7 @@ export const List = () => {
     e.preventDefault();
     setshow(true);
     console.log(e.target.search.value);
-    const urlsearch = `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${e.target.search.value}`;
+    const urlsearch = `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${e.target.search.value}&page=1`;
 
     seturl(urlsearch);
 
