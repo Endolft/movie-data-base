@@ -5,34 +5,44 @@ import { useCounter } from "../../Hooks/useCounter";
 
 export const TrailersCarroussel = ({ movieTrailer }) => {
   const { counter, decrement, increment } = useCounter(0);
+  console.log(counter);
 
   return (
     <div className="frame-contrainer">
       {movieTrailer ? (
         <>
-          <div className={counter === 0 ? "hide" : "next"}>
-            <FontAwesomeIcon
-              icon={faAngleLeft}
-              className="faArrowRight"
-              onClick={decrement}
-            />
-            <p>Previous</p>
-          </div>
+          {(counter > 0 && (
+            <div className={"next"} onClick={decrement}>
+              <FontAwesomeIcon icon={faAngleLeft} className="faArrowRight" />
+              <p>Previous</p>
+            </div>
+          )) ||
+            (counter === 0 && (
+              <div className={"next-disable"}>
+                <FontAwesomeIcon icon={faAngleLeft} className="faArrowRight" />
+                <p>Previous</p>
+              </div>
+            ))}
           <iframe
             src={`https://www.youtube.com/embed/${movieTrailer[counter]?.key}?&mute=1`}
             title="YouTube video player"
             allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
-          <div
-            className={counter === movieTrailer.length - 1 ? "hide" : "next"}
-          >
-            <FontAwesomeIcon
-              icon={faAngleRight}
-              className="faArrowRight"
-              onClick={increment}
-            />
-            <p>Next</p>
-          </div>
+          {(counter < movieTrailer.length - 1 && (
+            <div className={"next"} onClick={increment}>
+              <p>Next</p>
+              <FontAwesomeIcon
+                icon={faAngleRight}
+                className="faArrowRight"
+              />{" "}
+            </div>
+          )) ||
+            (counter === movieTrailer.length && (
+              <div className={"next-disable"}>
+                <p>Previous</p>
+                <FontAwesomeIcon icon={faAngleLeft} className="faArrowRight" />
+              </div>
+            ))}
         </>
       ) : (
         <p></p>

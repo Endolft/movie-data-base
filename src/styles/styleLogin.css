@@ -111,4 +111,18 @@ a {
   .icon {
     height: 45px;
   }
+  .button{
+    width: 100px;
+    height: 75px;
+    font-size:30px ;
+    
+  }
+  .labels{
+    font-size: 32px;
+  }
+  .form-control{
+    height: 70px;
+    width: 330px;
+
+  }
 }

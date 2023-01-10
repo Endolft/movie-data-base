@@ -2,7 +2,7 @@ import React from "react";
 
 export const Poster = ({ movie }) => {
   return (
-    <div>
+    <div className="poster-container">
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         className="poster"
