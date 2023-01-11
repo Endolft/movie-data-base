@@ -87,6 +87,7 @@ li {
   color: rgba(160, 154, 154, 0.315);
   display: flex;
   cursor:default;
+  margin: 30px;
 }
 .hide {
   display: none;

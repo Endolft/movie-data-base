@@ -15,13 +15,12 @@ export const useFilters = () => {
   };
 
   const handleFilters = (newFilters) => {
-    const query = { ...params,...newFilters };
+    const query = { ...params, ...newFilters };
 
     navigate({
       search: `?${createSearchParams(query)}`,
     });
   };
 
-  return { filters, handleFilters};
+  return { filters, handleFilters };
 };
-

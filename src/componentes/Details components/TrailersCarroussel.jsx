@@ -28,7 +28,7 @@ export const TrailersCarroussel = ({ movieTrailer }) => {
             title="YouTube video player"
             allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
-          {(counter < movieTrailer.length - 1 && (
+          {(counter < movieTrailer.length  && (
             <div className={"next"} onClick={increment}>
               <p>Next</p>
               <FontAwesomeIcon
@@ -39,8 +39,8 @@ export const TrailersCarroussel = ({ movieTrailer }) => {
           )) ||
             (counter === movieTrailer.length && (
               <div className={"next-disable"}>
-                <p>Previous</p>
-                <FontAwesomeIcon icon={faAngleLeft} className="faArrowRight" />
+                <p>Next</p>
+                <FontAwesomeIcon icon={faAngleRight} className="faArrowRight" />
               </div>
             ))}
         </>

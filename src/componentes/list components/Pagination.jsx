@@ -36,16 +36,16 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
   }, [filters.search, filters.genre]);
 
   const handlePage = (e) => {
-    handleFilters({ page: e.target.innerHTML, search: search, genre: genre });
+    handleFilters({  search: search, genre: genre, page: e.target.innerHTML});
   };
 
   const increment = () => {
     let pageIncremnt = pageParam + 1;
-    handleFilters({ page: pageIncremnt, search: search, genre: genre });
+    handleFilters({ search: search, genre: genre, page: pageIncremnt });
   };
   const decrement = () => {
     let pageDecrement = pageParam - 1;
-    handleFilters({ page: pageDecrement, search: search, genre: genre });
+    handleFilters({  search: search, genre: genre,page: pageDecrement });
   };
 
   return (
