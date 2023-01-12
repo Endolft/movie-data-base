@@ -2,14 +2,13 @@ import React from "react";
 import { useForm } from "../../Hooks/useForm";
 import { Social } from "./Social";
 
-export const LoginForm = ({}) => {
+export const LoginForm = () => {
   const { formState, onInputChange, handleSubmit } = useForm({
     password: "",
     email: "",
   });
 
   const { password, email } = formState;
-
 
   return (
     <form onSubmit={handleSubmit} className="form">

@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 export const useFilters = () => {
-  const [params,setParams] = useSearchParams();
+  const [params] = useSearchParams();
 
  
 
