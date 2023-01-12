@@ -14,8 +14,8 @@ export const Header = () => {
   };
 
   const out = (e) => {
-    e.preventDefault(); 
-    sessionStorage.removeItem("token")
+    e.preventDefault();
+    sessionStorage.removeItem("token");
     navigate("/");
   };
   const refresh = () => {
@@ -30,7 +30,7 @@ export const Header = () => {
     <>
       <nav className="navbar navbar-dark bg-dark " id="header">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand">
             <img
               src="https://img.freepik.com/vector-premium/diseno-logotipo-camara-video-vintage-produccion-peliculas-cine_227744-487.jpg"
               alt=""
