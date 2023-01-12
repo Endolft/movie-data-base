@@ -5,7 +5,9 @@ import {
 } from "react-router-dom";
 
 export const useFilters = () => {
-  const [params] = useSearchParams();
+  const [params,setParams] = useSearchParams();
+
+ 
 
   const navigate = useNavigate();
   const filters = {
