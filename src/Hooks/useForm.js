@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../componentes/context/AuthContext";
-import { CheckLogin } from "../componentes/login components/CheckLogin";
-
+import { CheckLogin } from "../componentes/login-components/CheckLogin";
 export const useForm = ({ initialForm = {} }) => {
   const [formState, setFormState] = useState({ initialForm });
   const { login } = useContext(AuthContext);
