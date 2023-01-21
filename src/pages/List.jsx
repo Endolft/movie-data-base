@@ -15,9 +15,6 @@ export const List = () => {
 
   const [url, seturl] = useState(urlDefault);
   const [show, setshow] = useState(false);
-  const [urlCanonical, setUrlCanonical] = useState(
-    "http://localhost:3000/listado?page=1"
-  );
 
   const { data, isLoanding, pages } = useFetch(url);
 
@@ -34,24 +31,17 @@ export const List = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${filters.search}&page=${filters.page}`
       );
       scroll();
-      setUrlCanonical(
-        `/listado?search=${filters.search}&genre=&page=${filters.page}`
-      );
+
       return;
     }
     if (filters.genre) {
       seturl(`${urlDefault}&with_genres=${filters.genre}&page=${filters.page}`);
       scroll();
-      setUrlCanonical(
-        `/listado?search=&genre=${filters.genre}&page=${filters.page}`
-      );
+
       return;
     }
     seturl(`${urlDefault}&page=${filters.page}`);
     scroll();
-    setUrlCanonical(
-      `/listado?search=&genre=${filters.genre}&page=${filters.page}`
-    );
   }, [filters]);
 
   const showfilter = () => {
