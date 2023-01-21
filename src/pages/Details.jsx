@@ -36,7 +36,7 @@ export const Details = () => {
   return (
     <>
       {!isLoadingMovie && (
-        <div className="container-details animate__animated animate__fadeIn " >
+        <div className="container-details animate__animated animate__fadeIn ">
           {close ? (
             <FullScreenTrailer handleclose={handleclose} trailer={trailer} />
           ) : (

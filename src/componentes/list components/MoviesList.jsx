@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import camera from "../../componentes/images/camera.png";
 import { Pagination } from "./Pagination";
+import camera from "../../componentes/images/camera.png";
 import React from "react";
 import "../../styles/styleMovieList.css";
 

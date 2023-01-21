@@ -5,8 +5,7 @@
   cursor: pointer;
   font-size: 20px;
   text-align: center;
-  
- 
+
   width: 100%;
 }
 .filters {
@@ -29,7 +28,6 @@ ul {
   justify-content: left;
   text-align: left;
   padding: 5px;
-  
 }
 .genres-container-select {
   display: flex;
@@ -44,12 +42,11 @@ ul {
 }
 
 .genres-names {
-  
   font-size: 20px;
   cursor: pointer;
   margin-top: 10px;
 }
-#list-genre{
+#list-genre {
   background-color: #7a63ff;
   border: solid white 3px;
 }

@@ -10,6 +10,7 @@ export const Login = () => {
     <>
       {tokenAlmacenado && <Navigate to="/listado" />}
       <div className="content   ">
+        <div className=" background-img"></div>
         <div className="formulario ">
           <div
             className="login animate__animated animate__fadeInDown animate__bounce"

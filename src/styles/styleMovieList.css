@@ -7,12 +7,12 @@
   justify-content: center;
   margin-top: 30px;
 }
-.card{
+.card {
   width: 303px;
   height: 670px;
   margin: 0px;
   border: none;
-  margin:17px;
+  margin: 17px;
   text-decoration: none;
   text-align: center;
   background-color: #161616;
@@ -24,7 +24,7 @@
   align-items: center;
   width: 300px;
   border: none;
-  height: 670px
+  height: 670px;
 }
 .overlay {
   width: 300px;
@@ -95,18 +95,15 @@
 .pagination {
   margin: 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  color: wheat;
+  color: #72d9ee;
   width: 100%;
-
-
 }
 .button-pagination {
-  margin: 3px;
-  border: solid 2px wheat;
-  border-radius: 10px;
-  width: 30px;
-  background-color: black;
+  width: 40px;
+  height: 40px;
+  background-color: #141313;
   cursor: pointer;
 }
 h3 {
@@ -127,7 +124,6 @@ h3 {
   cursor: pointer;
   border-radius: 10px;
   justify-content: center;
-  
 }
 .number-select {
   display: flex;
@@ -137,66 +133,65 @@ h3 {
   font-size: 30px;
   margin: 5px;
   cursor: pointer;
-  background-color: rgba(201, 192, 182, 0.753);
+  background-color: #7a63ffa1;
   border-radius: 10px;
   height: 50px;
   width: 50px;
   justify-content: center;
 }
-#cards{
+#cards {
   display: flex;
   justify-content: center;
   margin: 0;
 }
 @media only screen and (max-width: 980px) {
-  #cards{
+  #cards {
     display: flex;
-    justify-content:space-around
+    justify-content: space-around;
   }
- .card{
-  height: 320px;
-  width: 150px;
-  margin:0px 0px 20px 0px
- }
- .cart{
-  height: 320px;
-  width: 150px;
- }
- .overlay{
-  width: 150px;
-  height: 320px;
- }
- .card-img-top{
-  width: 150px;
-  height: 320px;
-  
- }
- .text-container{
-  display: none;
- }
- .number{
-  height: 30px;
-  width: 30px;
-  font-size: 20px;
-  margin: 2px;
- }
- .number-select {
-  height: 30px;
-  width: 30px;
-  font-size: 20px;
-  margin: 2px;
- }
- .button-pagination{
-  width: 25px;
-  height: 35px;
-  font-size: 20px;
-  text-align: center;
-  padding: 5px;
-
- }
- .pagination{
-  justify-content: center;
-  align-items: center;
-
- }
+  .card {
+    height: 320px;
+    width: 150px;
+    margin: 0px 0px 20px 0px;
+  }
+  .cart {
+    height: 320px;
+    width: 150px;
+  }
+  .overlay {
+    width: 150px;
+    height: 320px;
+  }
+  .card-img-top {
+    width: 150px;
+    height: 320px;
+  }
+  .text-container {
+    display: none;
+  }
+  .number {
+    height: 25px;
+    width: 25px;
+    font-size: 16px;
+    margin: 2px;
+  }
+  .number-select {
+    height: 25px;
+    width: 25px;
+    font-size: 16px;
+    margin: 2px;
+  }
+  .button-pagination {
+    margin: 2px;
+    width: 15px;
+    height: 15px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

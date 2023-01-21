@@ -3,17 +3,27 @@
   flex: 1;
   height: 100%;
 }
+.background-img {
+  background-image: url("../componentes/images/logo.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1e1e1e;
+  height: 100%;
+  width: 50%;
+}
 .formulario {
   display: flex;
   flex: 1;
   align-items: center;
+  justify-content: flex-end;
+  width: 50%;
 
-  background: linear-gradient(to top, #1e1e1e, #7a63ff);
+  background: #7a63ff;
 
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 100%;
-  height: 100vh;
+
   color: white;
 }
 
@@ -122,5 +132,8 @@ a {
   .form-control {
     height: 50px;
     width: 280px;
+  }
+  .background-img {
+    display: none;
   }
 }

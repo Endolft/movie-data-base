@@ -1,8 +1,7 @@
 import Swal from "sweetalert2";
 
-
 export const CheckLogin = (email, password) => {
-  let itsOkey=false
+  let itsOkey = false;
 
   if ([email, password].includes("")) {
     Swal.fire({
@@ -27,8 +26,7 @@ export const CheckLogin = (email, password) => {
 
     return;
   }
-  itsOkey=true
+  itsOkey = true;
 
- return {itsOkey}
-  
+  return { itsOkey };
 };

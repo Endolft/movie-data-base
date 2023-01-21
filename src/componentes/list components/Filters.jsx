@@ -21,7 +21,10 @@ export const Filters = ({
       </div>
 
       {show && (
-        <div className="filters animate__animated animate__fadeInLeft animate__faster" id="list-genre">
+        <div
+          className="filters animate__animated animate__fadeInLeft animate__faster"
+          id="list-genre"
+        >
           <ul className="list-group">
             {genres.map((genre, index) => {
               return (

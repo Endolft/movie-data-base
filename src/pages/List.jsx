@@ -19,7 +19,7 @@ export const List = () => {
   const { data, isLoanding, pages } = useFetch(url);
 
   useEffect(() => {
-    handleFilters({ search: "", genre: "", page: "1" });
+    handleFilters({ ...filters, page: "1" });
   }, []);
   const scroll = () => {
     document.body.scrollTo({ top: 0, behavior: "smooth" });
@@ -46,23 +46,28 @@ export const List = () => {
 
   const showfilter = () => {
     setshow(!show);
+    handleFilters({ ...filters, search: "", page: "1" });
+
+    seturl(urlDefault);
   };
 
   const handleSelectGenre = (e) => {
     let urlFilter = `${url}&with_genres=${e.target.value}&page=1`;
+
     seturl(urlFilter);
-    handleFilters({ ...Filters, genre: e.target.value });
+    handleFilters({ ...filters, genre: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setshow(true);
-    console.log(e.target.search.value);
+
+    setshow(false);
+
     const urlsearch = `https://api.themoviedb.org/3/search/movie?api_key=03001bac9af23366932d6ea454838123&query=${e.target.search.value}&page=1`;
 
     seturl(urlsearch);
 
-    handleFilters({ search: e.target.search.value, genre: "", page: "1" });
+    handleFilters({ ...filters, search: e.target.search.value, page: "1" });
   };
 
   return (

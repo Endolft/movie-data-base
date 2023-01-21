@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export const Pagination = ({ pages, handleFilters, filters }) => {
   const [lastPage, setLastPage] = useState(10);
@@ -36,7 +38,7 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
   }, [filters.search, filters.genre]);
 
   const handlePage = (e) => {
-    handleFilters({  search: search, genre: genre, page: e.target.innerHTML});
+    handleFilters({ ...filters, page: e.target.innerHTML });
   };
 
   const increment = () => {
@@ -45,15 +47,19 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
   };
   const decrement = () => {
     let pageDecrement = pageParam - 1;
-    handleFilters({  search: search, genre: genre,page: pageDecrement });
+    handleFilters({ search: search, genre: genre, page: pageDecrement });
   };
 
   return (
     <div className="pagination">
       {pageParam > 1 && (
-        <button onClick={decrement} className={"button-pagination"}>
-          {"<"}
-        </button>
+        <FontAwesomeIcon
+          icon={faArrowLeft}
+          size="xl"
+          className={"button-pagination"}
+          type="onSubmit"
+          onClick={decrement}
+        />
       )}
 
       {arrayCut.map((page, index) => {
@@ -68,9 +74,13 @@ export const Pagination = ({ pages, handleFilters, filters }) => {
         );
       })}
       {pageParam < pages && (
-        <button onClick={increment} className={"button-pagination"}>
-          {">"}
-        </button>
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          size="xl"
+          className={"button-pagination"}
+          type="onSubmit"
+          onClick={increment}
+        />
       )}
     </div>
   );

@@ -5,13 +5,14 @@ import { faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Social } from "./login-components/Social";
 import logo from "../componentes/images/logo.jpeg";
 import { AuthContext } from "./context/AuthContext";
+import { useFilters } from "../Hooks/useFilters";
 import "./styleHeader.css";
 
 export const Header = () => {
   const [list, setlist] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useContext(AuthContext);
-
+  const { filters, handleFilters } = useFilters();
   const change = (e) => {
     setlist(!list);
   };
@@ -23,12 +24,12 @@ export const Header = () => {
   };
   const refresh = () => {
     if (window.location.pathname === "/listado") {
+      handleFilters({ search: "", genre: "", page: "1" });
       window.location.reload();
       return;
     }
     navigate("/listado");
-  }; /* 
-  const { user} = useContext(AuthProvider); */
+  };
 
   return (
     <>

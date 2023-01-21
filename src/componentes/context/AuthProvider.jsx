@@ -7,16 +7,15 @@ export const AuthProvider = ({ children }) => {
   const init = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (!user){
+    if (!user) {
       return {
-        logged:false,
+        logged: false,
         user: user,
       };
-      
-    } 
+    }
     console.log(user);
     return {
-      logged:true,
+      logged: true,
       user: user,
     };
   };

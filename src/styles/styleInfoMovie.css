@@ -107,11 +107,11 @@ li {
   #root {
     background-color: #212529;
   }
-  .frame-contrainer{
+  .frame-contrainer {
     display: flex;
     flex-direction: column;
   }
-  iframe{
+  iframe {
     width: 300px;
   }
 }

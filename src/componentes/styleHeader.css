@@ -57,7 +57,7 @@ p {
   color: #f8d388;
   background-color: #212529;
 }
-.logo-search{
+.logo-search {
   display: flex;
   flex-direction: row;
 }
