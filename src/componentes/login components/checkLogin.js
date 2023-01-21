@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
 
-export const checkLogin = (email, password) => {
+
+export const CheckLogin = (email, password) => {
+  let itsOkey=false
+
   if ([email, password].includes("")) {
     Swal.fire({
       icon: "error",
@@ -24,10 +27,8 @@ export const checkLogin = (email, password) => {
 
     return;
   }
+  itsOkey=true
 
-
-  const tokenRecibido = "token ficticio";
-  sessionStorage.setItem("token", tokenRecibido);
-  
+ return {itsOkey}
   
 };

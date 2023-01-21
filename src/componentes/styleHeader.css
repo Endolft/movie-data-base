@@ -1,14 +1,15 @@
 #header {
   top: 0;
   z-index: 1080;
+  background-color: #1e1e1e;
 }
 .container-fluid {
   margin-right: 15px;
   width: 100%;
 }
 .img {
-  height: 60px;
-  width: 60px;
+  height: 86px;
+  width: 86px;
 }
 .navbar {
   width: 100%;
@@ -55,4 +56,8 @@ p {
 #offcanvasNavbar {
   color: #f8d388;
   background-color: #212529;
+}
+.logo-search{
+  display: flex;
+  flex-direction: row;
 }

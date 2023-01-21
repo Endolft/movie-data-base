@@ -1,5 +1,5 @@
 .content-dark {
-  background-color: rgb(19, 17, 17);
+  background-color: #141313;
   display: flex;
   flex: 1;
 }
@@ -16,14 +16,13 @@ input {
   font-size: 25px;
 }
 .searching {
-  
   color: white;
   font-size: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-right: 0px;
-  padding: 10px;
+  padding: 20px;
   margin-top: 10px;
   text-align: center;
 }
@@ -31,4 +30,15 @@ input {
   background-color: rgb(19, 17, 17);
   display: flex;
   flex: 1;
+}
+@media only screen and (max-width: 980px) {
+  .content-dark {
+    display: flex;
+    flex-direction: column;
+  }
+  .searching {
+    align-items: flex-start;
+    margin: 0px;
+    padding: 0px;
+  }
 }

@@ -29,3 +29,21 @@ section {
   margin-left: 20px;
   align-items: center;
 }
+@media only screen and (max-width: 980px) {
+
+  section{
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+  .companies-container{
+    width: 100%;
+  }
+  .companies-container{
+    margin: 0px;
+    font-size: 10px;
+    text-align: start;
+  }
+}

@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
-import "./styleHeader.css";
 import { Social } from "./login components/Social";
+import logo from "../componentes/images/logo.jpeg";
+import { AuthContext } from "./context/AuthContext";
+import "./styleHeader.css";
 
 export const Header = () => {
   const [list, setlist] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useContext(AuthContext);
 
   const change = (e) => {
     setlist(!list);
   };
 
   const out = (e) => {
-    e.preventDefault();
+    logout();
     sessionStorage.removeItem("token");
     navigate("/");
   };
@@ -24,22 +27,25 @@ export const Header = () => {
       return;
     }
     navigate("/listado");
-  };
+  }; /* 
+  const { user} = useContext(AuthProvider); */
 
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark " id="header">
+      <nav className="navbar " id="header">
         <div className="container-fluid">
-          <a className="navbar-brand">
-            <img
-              src="https://img.freepik.com/vector-premium/diseno-logotipo-camara-video-vintage-produccion-peliculas-cine_227744-487.jpg"
-              alt=""
-              width="30"
-              height="24"
-              onClick={refresh}
-              className="img"
-            />
-          </a>
+          <div className="logo-search">
+            <a className="navbar-brand">
+              <img
+                src={logo}
+                alt=""
+                width="30"
+                height="24"
+                onClick={refresh}
+                className="img"
+              />
+            </a>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -63,6 +69,7 @@ export const Header = () => {
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 Setting
               </h5>
+              <h5> welcome {user?.name}</h5>
               <button
                 type="button"
                 className="btn-close btn-close-white"

@@ -1,27 +1,34 @@
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./router/routes";
-import { Layout } from "./componentes/layout/Layout";
+import { PrivateRoute } from "./componentes/layout/PrivateRoute";
+import { PublicRoute } from "./componentes/layout/PublicRoute";
 import { Login } from "./pages/Login";
 import "./styles.css";
 
 export const AppRouter = () => {
-  
   return (
     <>
-      
       <Routes>
         {routes.map(({ path, Component }) => (
           <Route
             key={path}
             path={path}
             element={
-              <Layout>
+              <PrivateRoute>
                 <Component />
-              </Layout>
+              </PrivateRoute>
             }
           />
         ))}
-        <Route path="/" element={<Login />} />
+
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Login />{" "}
+            </PublicRoute>
+          }
+        />
       </Routes>
     </>
   );

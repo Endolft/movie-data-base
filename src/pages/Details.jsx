@@ -1,11 +1,11 @@
 import { React, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetchDetails } from "../Hooks/useFetchDetails.js";
 import { Titles } from "../componentes/Details components/Titles";
 import { InfoMovie } from "../componentes/Details components/InfoMovie";
 import { MoreInfo } from "../componentes/Details components/MoreInfo";
 import { FullScreenTrailer } from "../componentes/Details components/FullScreenTrailer";
-import { Helmet } from "react-helmet-async";
+
 import "../styles/styleDetails.css";
 
 export const Details = () => {
@@ -35,19 +35,16 @@ export const Details = () => {
 
   return (
     <>
-    <Helmet>
-      <title> Details Movies</title>
-      <meta name="description" content=" Details about your favourite movie with trailers! "/>
-      <link rel='canonical' href={`/detalle/${id}`} />
-    </Helmet>
       {!isLoadingMovie && (
         <div className="container-details animate__animated animate__fadeIn " >
           {close ? (
             <FullScreenTrailer handleclose={handleclose} trailer={trailer} />
           ) : (
             <>
-              
-              <div className="card-movie animate__animated animate__fadeIn animate__bounce  animate__slow" id="container-movie">
+              <div
+                className="card-movie animate__animated animate__fadeIn animate__bounce  animate__slow"
+                id="container-movie"
+              >
                 <Titles movie={movie} />
                 <InfoMovie
                   movie={movie}

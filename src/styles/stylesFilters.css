@@ -5,6 +5,7 @@
   cursor: pointer;
   font-size: 20px;
   text-align: center;
+  
  
   width: 100%;
 }
@@ -31,11 +32,15 @@ ul {
   
 }
 .genres-container-select {
-  background-color: rgba(85, 78, 78, 0.856);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #77a1f7;
   padding: 1px;
   font-size: 30px;
   border-radius: 5%;
   padding: 5px;
+  text-align: center;
 }
 
 .genres-names {
@@ -43,4 +48,8 @@ ul {
   font-size: 20px;
   cursor: pointer;
   margin-top: 10px;
+}
+#list-genre{
+  background-color: #7a63ff;
+  border: solid white 3px;
 }
