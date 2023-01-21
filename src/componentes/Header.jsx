@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Social } from "./login components/Social";
+import { Social } from "./login-components/Social";
 import logo from "../componentes/images/logo.jpeg";
 import { AuthContext } from "./context/AuthContext";
 import "./styleHeader.css";
