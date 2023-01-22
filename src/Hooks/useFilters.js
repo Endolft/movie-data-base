@@ -10,8 +10,8 @@ export const useFilters = () => {
   const navigate = useNavigate();
   const filters = {
     search: params.get("search") || "",
-    genre: params.get("genre") || "",
-    page: params.get("page") || "",
+    genre: params.get("genre")   || "",
+    page: params.get("page")     || "",
   };
 
   const handleFilters = (newFilters) => {
